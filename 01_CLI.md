@@ -19,9 +19,11 @@ Commend Line Interface
 - `git config--global user.email 깃허브 가입 "이메일"` : github 이메일 설정
 - `git config--global user.name "이름"` : 사용자 이름 설정
 - `git log` : 커밋에 대한 정보를 가져올 수 있다
+  - `git log --oneline` : 한줄로 로그를 뽑는다
 - `git checkout 커밋명` :  해당 커밋까지 돌아간다
 - `git checkout master` : 다시 원상태로 돌린다
 - `git remote` : 원격 저장소 관련 명령어 접두사
   - `add "별명"` : 저장소 별명을 지어 연결한다
   - `-v` : 저장소 상태를 본다
 - `git push "별명" "master"` 저장소에 파일을 푸시한다
+- `git clone` : 저장소에 있는 자료를 받아오는 기능
