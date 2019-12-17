@@ -29,3 +29,8 @@ Commend Line Interface
 - `git push "별명" "master"` 저장소에 파일을 푸시한다
 - `git clone` : 저장소에 있는 자료를 받아오는 기능
 - `mv A/ B` : A 파일/폴더를 B 파일/폴더로 이동시킨다.
+- `git branch` : 현재 존재하는 branch 확인 가능
+- `git branch "이름"` : branch 생성
+  - `git branch -d "이름"` : 삭제
+- `git switch "이름"` : branch 변경
+-  `git merge "병합할 branch 이름"` :  병합
