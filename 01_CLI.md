@@ -14,6 +14,7 @@ Commend Line Interface
 - `git status` : 깃의 현재 상태를 알려준다
 - `touch [파일 명]` : 파일을 생성한다
 - `rm [파일 명]` : 파일을 삭제한다
+  - `-r` : 폴더를 삭제한다
 - `git add` : 파일을 스테이지에 올린다
 - `git commit -m "message"` : 메시지로 설명하고 커밋한다
 - `git config--global user.email 깃허브 가입 "이메일"` : github 이메일 설정
@@ -27,3 +28,4 @@ Commend Line Interface
   - `-v` : 저장소 상태를 본다
 - `git push "별명" "master"` 저장소에 파일을 푸시한다
 - `git clone` : 저장소에 있는 자료를 받아오는 기능
+- `mv A/ B` : A 파일/폴더를 B 파일/폴더로 이동시킨다.
