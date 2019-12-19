@@ -83,3 +83,41 @@
   ```
 
   
+
+## Python의 가상환경 설정
+
+- 현재 사용하는 모듈의 리스트를 출력
+
+  ```python
+  pip list
+  ```
+
+- 자신의 모듈 버전 정보를 requirement.txt에 담아 해당 txt에 적힌 모듈을 다운받아 사용할 수 있도록 한다.
+
+  ```python
+  pip freeze > requirement.txt
+  pip install -r requirement.txt
+  ```
+
+- 가상 환경을 생성하고 활성화시킨다
+
+  ```python
+  python -m venv venv
+  source venv/Scripts/activate
+  ```
+
+  - 앞에 있는 venv 는 Python에서 제공하는 모듈집합의 이름, 뒤에 있는 이름은 모듈 명으로 다른 것으로 설정해도 되지만 혹시 모를 문제를 방지하기 위해 venv로 사용한다
+
+- 종료시에는 deactivate 명령어를 사용한다
+
+  ```python
+  deactivate
+  ```
+
+- 종료 후 파일 삭제
+
+  ```python
+  rm -rf venv
+  ```
+
+  
