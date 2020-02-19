@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Stylish Portfolio - Start Bootstrap Template</title>
+
+    {% load static %}
+
+    <!-- Bootstrap Core CSS -->
+    <link href='{% static "department/vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href='{% static "department/vendor/fontawesome-free/css/all.min.css" %}' rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css">
+    <link href='{% static "department/vendor/simple-line-icons/css/simple-line-icons.css" %}' rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href='{% static "department/css/stylish-portfolio.min.css"%}' rel="stylesheet">
+    <link href='{% static "department/css/heejun.css" %}' rel="stylesheet">
+    <link href='{% static "department/css/taewan.css" %}' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+    <div style="width:100%; height:100%">
+        <!-- 100% div -->
+        <div style="width:20%; height:100%; position:relative; background-color: #1d809f; float:left">
+            <div class="floatleft" style="width:100%">
+                <div id="layoutSidenav">
+                    <div id="layoutSidenav_nav">
+                        <nav id="sidenavAccordion">
+                            <div class="sb-sidenav-menu">
+                                <div class="nav">
+                                    <div class="sidebar-brand" style="width:100%">
+                                        <a class="js-scroll-trigger" href="../firstpage">
+                                            <div class="fake_nav">
+                                                메인화면
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <a href="../firstpage/#locationMap" class="fake_nav_li navItem">
+                                        <div class="fake_nav_item">지도로 이동</div>
+                                    </a>
+                                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                                        data-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            {% for f in fl %}
+                                            <div id="{{f}}" class="fake_nav_item floorMenu">{{f}}</div>
+
+                                            {% endfor %}
+
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="width:80%; height:100%; display:inline-block; position:relative;" id="box80">
+            <!-- search bar -->
+            <div class="headbox">
+                <div id="logoname" class="cafe24font">백화사전</div>
+                <form class="searchbar" method='post' id="searchbar" action="{% url 'department:search' %}">
+                    {% csrf_token %}
+                    <input type="text" name="searchText" placeholder="브랜드로 검색">
+                    <span class="icon" onclick="document.getElementById('searchbar').submit();"><i
+                            class="fa fa-search"></i></span>
+                </form>
+            </div>
+            <!-- /search bar -->
+            <!-- 지점 정보 -->
+            <div class="resultBox">
+                <div class="resultBox_content">
+                    <!-- <h5 class="mb-3 bread">검색 결과 : " {{searchText}} " </h5> -->
+                    <h5 class="mb-3 bread">"{{searchText}}"  검색 결과 </h5>
+                </div>
+            </div>
+            <div class="box3_remake" style="justify-content: center;">
+                <form id="detailform" method="POST" action="/main/detail/">
+                    {% csrf_token %}
+                    <input type="hidden" name="storeaddress">
+                </form>
+                <!-- 검색결과가 없을 때 div -->
+                {% if result %}
+                    {% else %}
+                    <div id="nosearchbox">
+                        <i id="noserch" class="fab fa-searchengin fa-7x"></i>
+                        <p>"{{searchText}}"와(과) 일치하는 검색결과가 없습니다.</p>
+                    </div>
+                    {% endif %}
+                <!-- card1 -->
+                    {% if result.롯데 %}
+                    <div class="search_dep_box" style="display: flex;">
+                    <div class="col-md-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img class="dsimg" src="../../static/department/img/l.png">
+                                <!-- <h2 class="card-title">롯데 백화점</h2> -->
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-lg dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    매장 목록
+                                </button>
+                                <div class="dropdown-menu">
+                                    {% for items in result.롯데 %}
+                                    {% csrf_token %}
+                                        <a class="dropdown-item" style="font-size: 0.7em;" onclick='sendData(this)'
+                                            dest = "{{items.store_address}}">
+                                            {{items.store_name}} {{items.brand_name}}
+                                        </a>
+                                    <!-- <input class="btn btn-light" type="submit" value="이동" > -->
+                                    {% endfor %}                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    {% endif %}
+                <!-- /card 1 -->
+                <!-- card2 -->
+                    {% if result.현대 %}
+                    <div class="search_dep_box" style="display: flex;">
+                    <div class="col-md-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img class="dsimg" src="../../static/department/img/h.png">
+                                <!-- <h2 class="card-title">현대 백화점</h2> -->
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-lg dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    매장 목록
+                                </button>
+                                <div class="dropdown-menu">
+                                    {% for items in result.현대 %}
+                                    {% csrf_token %}
+                                        <a class="dropdown-item" style="font-size: 0.7em;" onclick='sendData(this)'
+                                            dest = "{{items.store_address}}">
+                                            {{items.store_name}} {{items.brand_name}}
+                                        </a>
+                                    <!-- <input class="btn btn-light" type="submit" value="이동" > -->
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    {% endif %}
+                <!-- /card2 -->
+                <!-- card3 -->
+                    {% if result.신세계 %}
+                    <div class="search_dep_box" style="display: flex;">
+                    <div class="col-md-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img class="dsimg" src="../../static/department/img/sh.png">
+                                <!-- <h2 class="card-title">신세계 백화점</h2> -->
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-lg dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    매장 목록
+                                </button>
+                                <div class="dropdown-menu">
+                                    {% for items in result.신세계 %}
+                                    {% csrf_token %}
+                                        <a class="dropdown-item" style="font-size: 0.7em;" onclick='sendData(this)'
+                                            dest = "{{items.store_address}}">
+                                            {{items.store_name}} {{items.brand_name}}
+                                        </a>
+                                    <!-- <input class="btn btn-light" type="submit" value="이동" > -->
+                                    {% endfor %}
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    {% endif %}
+                <!-- /card3 -->
+                <!-- /지점정보 -->
+                
+            </div>
+            <!-- /100% div -->
+        </div>
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src='{% static "department/vendor/jquery/jquery.min.js" %}'></script>
+        <script src='{% static "department/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+
+        <!-- Plugin JavaScript -->
+        <script src='{% static "department/vendor/jquery-easing/jquery.easing.min.js" %}'></script>
+
+        <!-- Custom scripts for this template -->
+        <script src='{% static "department/js/stylish-portfolio.min.js" %}'></script>
+
+        <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+            function sendData(e){
+                $('[name = storeaddress]').val($(e).attr('dest'));
+                $('#detailform').submit()
+            }
+        </script>
+
+</body>
+
+</html>

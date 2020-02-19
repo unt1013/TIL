@@ -1,0 +1,258 @@
+@font-face { font-family: 'Cafe24Ohsquare'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+.cafe24font{
+    font-family: 'Cafe24Ohsquare';
+}
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.googlefont{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.storeSelect {
+    position: absolute;
+    bottom: 4.5em;
+    padding: 0 0.5em;
+    width: 100%;
+    text-align: center;
+}
+
+#submitBtn{
+    margin-top:0.5em;
+}
+
+.relative{
+    position: relative;
+}
+
+.storeSelect input{
+    text-align: left;
+    background: none;
+    border: none;
+}
+
+.storeSelect input:nth-child(1){
+    /* font-weight: 600; */
+    font-size:1.1em;
+}
+
+.storeSelect button{
+    width: 80%;
+    height:2.5em;
+    
+}
+
+.searchbar{
+    position: absolute;
+    top: 1.5em;
+    right: 7em;
+    border-bottom: black solid 2px;
+}
+
+.searchbar input{
+    /* background: none; */
+    background-color:transparent;
+    border: none;
+    padding-left:1em;
+    width: 11.5em;
+}
+
+.searchbar input::placeholder {
+    color: #343a40;
+    text-align: center;
+}
+
+.searchbar .icon {
+    cursor:pointer;
+}
+
+
+/* nav bar */
+.navItem{
+    width: 100%;
+}
+.subnav {
+    background-color: #1d809f;
+    position: fixed;
+  }
+.collapse{
+    width:100%;
+}
+
+
+/* detail 페이지 */
+.headbox{
+    height:4em;
+    width:100%;
+    background-color: #E4B11B;
+}
+
+#displayfloor{
+    width: 8em;
+    padding:0;
+    position: fixed;
+    bottom: 0.5em;
+    margin-left: 4em;
+    font-size: 2.2em;
+    font-weight: 600;
+    color: #F8F9FA;
+    opacity: 0.5;
+}
+
+.box0{
+    width: 20%;
+    float: left;
+    height: 100%;
+}
+
+.box1{
+    width: 80%;
+    height: 17em;
+    /* margin-top:2em; */
+}
+
+.box1-1{
+    padding:1em;
+    padding-left:2em;
+    width: 60%;
+    height: 17em;
+    background-color: #343a40;
+    text-align: center;
+}
+.box1-2{
+    padding:1em;
+    padding-top:3em;
+    width: 40%;
+    height: 17em;
+    background-color: #343a40;
+    color: #F8F9FA;
+}
+
+
+.box3{
+    padding-left:4em;
+    padding-right:2em;
+    padding-top:1.5em;
+    width: 80%;
+    background-color: #F8F9FA;
+    min-height: 50%;
+    /* height: 30em; */
+}
+
+.floatleft{
+    float: left;
+}
+
+.dsImg{
+    height:2em;
+}
+
+#storeImg {
+    /* height: fit-content; */
+}
+
+.brandname{
+    padding: 0.5em 2em;
+    float: left;
+    /* border: #E4B11B solid 1px; */
+    width: 16em;
+    background: #F8F9FA;
+}
+
+.brandname:hover{
+    background-color: #E8E8E8;
+}
+
+.storeInfo i{
+    padding-right:0.3em;
+}
+
+.storeInfo p{
+    padding-left:1em;
+}
+
+.active{
+    display:block;
+}
+
+.hidden{
+    display:none;
+}
+
+
+/* search.html */
+.sbox1{
+    width: 80%;
+    height: 7em;
+    background-color: #343a40;
+    padding:1em;
+    padding-left:2em;
+}
+
+@media (max-width:900px) {
+    #navBtn{
+        display:block;
+    }
+}
+@media (min-width:900px){
+    #navBtn{
+        display:none;
+    }
+}
+
+
+/* search.html */
+
+#noserch{
+    color:#E4B11B;
+}
+#nosearchbox{
+    text-align: center;
+}
+
+#nosearchbox i{
+    padding:0.5em;
+}
+
+.dsimg{
+    width: 100%;
+    height: 100%;
+}
+
+.card-footer button{
+    width:100%;
+    background-color:#E4B11B;
+    color:#F8F9FA;
+    font-weight:500;
+    font-size:1.1em;
+}
+
+.resultBox_content{
+    padding-top: 1.8%;
+    padding-left:3em;
+}
+
+.search_dep_box{
+    width: 28%;
+    max-width: 18em;
+    /* height: 20em; */
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+
+#box80{
+    background-color: #F8F9FA;
+}
+
+#logoname{
+    padding-left: 2em;
+    color: #343a40;
+    font-size: 1.5em;
+    width: 10em;
+    padding-top: 0.7em;
+
+}

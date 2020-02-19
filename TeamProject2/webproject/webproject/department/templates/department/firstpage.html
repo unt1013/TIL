@@ -1,0 +1,61 @@
+{% extends 'department/index.html' %}
+{% block content %}
+
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sidebar-brand" style="width:100%">
+                        <a class="js-scroll-trigger" href="#page-top">
+                            <div class="fake_nav">
+                                메인화면
+                            </div>
+                        </a>
+                      </div>
+                    <a href="#"  class="fake_nav_li" style="width:100%" data-toggle="collapse" 
+                        data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="fake_nav_item">상세보기</div>
+                        <div class="fake_nav_arrow">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <div class="fake_nav_item" onclick="hideMarkers()" >마커 감추기</div>
+                            <div class="fake_nav_item" onclick="showMarkers()" >마커 보이기</div>
+                            <div class="fake_nav_item" onclick="onlyL()" >롯데 백화점</div>
+                            <div class="fake_nav_item" onclick="onlyH()" >현대 백화점</div>
+                            <div class="fake_nav_item" onclick="onlyS()" >신세계 백화점</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class='storeSelect'>
+    <form id="mapform" method="POST"  action="/main/detail/">
+        {% csrf_token %}
+        <input name="storename" class="select-info-box" id="storename" type="text" readonly>
+        <input name="storeaddress" class="select-info-box" id="storeaddress" type="textarea" readonly>
+        <!-- <input class="btn btn-light" type="submit" value="이동" > -->
+    </form> 
+    <button id="submitBtn" class="btn btn-light">이동</button>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    $('#submitBtn').on("click", function(){
+        var address= $('#storeaddress').val();
+        console.log(address);
+        if(address==""){
+            alert("지도에서 위치를 선택해 주세요");
+        } else{
+            $('#mapform').submit();
+        }
+    })
+
+</script>
+{% endblock %}
